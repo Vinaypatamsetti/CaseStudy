@@ -1,0 +1,25 @@
+@import 'https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css';
+@import 'https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css';
+
+body{
+    margin-top:10px;
+    background-color: #f2f3f8;
+}
+.card {
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #e5e9f2;
+    border-radius: .2rem;
+}

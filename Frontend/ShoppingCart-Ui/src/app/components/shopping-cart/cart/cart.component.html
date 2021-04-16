@@ -1,0 +1,70 @@
+<!-- <div *ngIf="cartItems.length === 0" class="alert alert-info">Your Cart is Empty.</div>
+
+<ul *ngIf="cartItems.length > 0" class="list-group">
+  <li class="list-group-item" *ngFor="let item of cartItems">
+    <app-cart-item [cartItem]="item"></app-cart-item>
+  </li>
+
+  <li class="list-group-item active">
+    <strong>Total</strong> {{ cartTotal | currency:'INR' }}
+  </li>
+</ul>  -->
+
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container padding-bottom-3x mb-1">
+    <!-- Alert-->
+    <div class="alert alert-info alert-dismissible fade show text-center mb-30"><span class="alert-close" data-dismiss="alert"></span><i class="fe-icon-award"></i>&nbsp;&nbsp; <strong>YOUR CART</strong> </div>
+    <!-- Shopping Cart-->
+    <div class="table-responsive shopping-cart">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th >ProductInfo</th>
+                    <th class="text-center">Quantity</th>
+                    <th class="text-center">Subtotal</th>
+                  
+                    <th class="text-center"><a class="btn btn-sm btn-outline-danger" href="#">Clear Cart</a></th>
+                </tr>
+            </thead>
+           
+            <tbody *ngFor="let items of cartitems; let i=index" >
+                <tr>
+                    <td>
+                        <div  class="product-item">
+                             <a class="product-thumb" href="#"><img src="{{items.image}}" ></a> 
+                            <div class="product-info">
+                                <h4 class="product-title"><a href="#">{{items.productName}}</a></h4><span><em>Size:</em> 10.5</span><span><em>Color:</em> Dark Blue</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <div class="count-input">
+                            <!-- <select class="form-control">
+                                <option>1</option>
+                                <option>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                            </select> -->
+                            {{items.quantity}}
+                        </div>
+                    </td>
+                    <td class="text-center text-lg text-medium">{{items.price}}</td>
+                    
+                   <td class="text-center"><a class="remove-from-cart"  (click)="deleteItem(i)"  data-toggle="tooltip" title="" data-original-title="Remove item"><i class="fa fa-trash"></i></a></td>
+                       
+                </tr>
+                
+            </tbody>
+           
+        </table>
+    </div>
+    <div class="shopping-cart-footer">
+        
+        <div class="column text-lg">TotalPrice: <span class="text-medium">{{totalPrice}}</span></div>
+    </div>
+    <div class="shopping-cart-footer">
+        <div class="column"><a class="btn btn-outline-secondary" href="#"><i class="icon-arrow-left"></i>&nbsp;Back to Shopping</a></div>
+        <div class="column"><a class="btn btn-primary" href="#" data-toast="" data-toast-type="success" data-toast-position="topRight" data-toast-icon="icon-circle-check" data-toast-title="Your cart" data-toast-message="is updated successfully!">Update Cart</a><a class="btn btn-success" href="#">Checkout</a></div>
+    </div>
+</div>
