@@ -19,7 +19,9 @@ export class ProductListComponent implements OnInit {
 public products:Product[] |undefined;
  
  public Cid=0;
- 
+ public role:string;
+ public merchant=false;
+ public customer=false;
   constructor(private productService:ProductService,private router:Router,private loginService:LoginService,private cartService:CartService){}
  
   ngOnInit():void {
@@ -53,14 +55,24 @@ public products:Product[] |undefined;
      this.loginService.getUser().subscribe(
        (response:any)=>{
          this.Cid=response.id;
+         this.role=response.role;
+         this.assignRole();
        },(error: HttpErrorResponse)=> {
         alert(error.message);
       }
      );
   }
+
+   assignRole(){
+     if(this.role==="customer"){
+       return this.customer=true;
+     }else if(this.role==="merchant"){
+      return this.merchant=true;
+     }
+   }
   
  public AddProductToCart(Pid:number):void{
-   console.log("came to add product in comp");
+   
    if(this.loginService.isLoggedIn()){
     this.cartService.addProductToCart(this.Cid,Pid).subscribe(
       (response:any)=>{
@@ -71,4 +83,33 @@ public products:Product[] |undefined;
     );
  }
  }
+
+ public RemoveProduct(Pid:number):void{
+   this.productService.deleteProductById(Pid).subscribe(
+    (response:void)=>{
+      window.location.reload();
+    },(error: HttpErrorResponse)=> {
+      alert(error.message);
+    }
+   );
+ }
+
+
+  public searchProducts(key: string): void {
+   
+    const results: Product[]  = [];
+    for (const product of this.products) {
+      if (product.productName.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.productType.toLowerCase().indexOf(key.toLowerCase()) !== -1
+      || product.category.toLowerCase().indexOf(key.toLowerCase()) !== -1
+     ) {
+        results.push(product);
+      }
+    }
+    this.products = results;
+    if (results.length === 0 || !key) {
+      this.Products();
+    }
+  }
+
 }

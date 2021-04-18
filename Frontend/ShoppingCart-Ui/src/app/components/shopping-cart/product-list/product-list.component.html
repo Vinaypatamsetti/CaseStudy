@@ -1,21 +1,31 @@
  <div class="container">
   <!-- <h3 class="h3">shopping Demo-2 </h3> -->
+  
+ 
+   <form class="form-inline my-2 my-lg-0">
+    <input type="search" (ngModelChange)="searchProducts(key.value)" #key="ngModel" ngModel
+     name="key" id="searchName" class="form-control mr-sm-2" placeholder="Search products..." required>
+ </form> 
+ <br>
+ <br>
   <div class="row">
      
       <div *ngFor="let product of products" class="col-md-3 col-sm-6">
           <div class="product-grid2">
             <div class="product-image2">
                 <a href="#">
-                    <img class="pic-1" src="{{product.image[0]}}">
-                    <img class="pic-2" src="{{product.image[0]}} ">
+                    <img class="pic-1" src="{{product.image1}}">
+                    <img class="pic-2" src="{{product.image1}} ">
                 </a>
                 <ul class="social">
                     <li><a href="product/{{product.productName}}"     data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
                    
-                    <li><a href="cart/{{Cid}}" (click)="AddProductToCart(product.productId)"   data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="cart/{{Cid}}" (click)="AddProductToCart(product.productId)" *ngIf="!merchant"  data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a  (click)="RemoveProduct(product.productId)"  *ngIf="merchant"  data-tip="Delete"><i class="fa fa-trash"></i></a></li>
                 </ul>
-                <a class="add-to-cart"  href="">Add to cart</a>
-              </div>
+                <a class="add-to-cart"  href="cart/{{Cid}}" *ngIf="!merchant" (click)="AddProductToCart(product.productId)">Add to cart</a>
+                <a class="add-to-cart"   *ngIf="merchant"  href="updateProduct/{{product.productId}}">Update</a>
+            </div>
               <div class="product-content">
                   <h3 class="title"><a href="#">{{product?.productName}}</a></h3>
                   <span class="price">{{product?.price}}</span>

@@ -1,0 +1,77 @@
+
+       
+        <div class="container h-100">
+            <div class="row h-100">
+                <div class="col-sm-3 col-md-4 col-lg-6  mx-auto d-table h-100">
+                    <div class="d-table-cell align-middle">
+                        <div class="card">
+         <div class="card-body">
+        <form  #updateForm="ngForm"  >
+            <div class="form-group  ">
+                <label  class="col-md-9" >ProductId</label>
+                <div  class="col-md-9" >
+                <input style="font-size: 1rem;" class="form-control form-control-md" ngModel="{{editproduct?.productId}}"  disabled type="text" name="productId"  placeholder="Enter  product id">
+            </div>
+            </div>
+            <div class="form-group  ">
+                <label  class="col-md-9" >ProductName</label>
+                <div  class="col-md-9" >
+                <input style="font-size: 1rem;" class="form-control form-control-md" ngModel= "{{editproduct?.productName}}" type="text" name="productName" placeholder="Enter  product name">
+            </div>
+        </div>
+        <div class="form-group  ">
+            <label class="col-md-6" >ProductType</label>
+            <div  class="col-md-9">
+            <input style="font-size: 1rem;" class="form-control form-control-md" ngModel="{{editproduct?.productType}}" type="text" name="productType" placeholder="Enter  product type">
+        </div>
+    </div>
+
+    <div class="form-group  ">
+        <label class="col-md-6" >Category</label>
+        <div  class="col-md-9">
+        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel="{{editproduct?.category}}" type="text" name="category" placeholder="Enter  product category">
+    </div>
+</div>
+
+<div class="form-group  ">
+    <label class="col-md-6" >Image1Url</label>
+    <div  class="col-md-10">
+    <input style="font-size: 1rem;" class="form-control form-control-md" ngModel="{{editproduct?.image1}}" type="text" name="image1" placeholder="Enter image url">
+</div>
+</div>
+
+<div class="form-group  ">
+    <label class="col-md-4" >Image2Url</label>
+    <div  class="col-md-10">
+    <input style="font-size: 1rem;" class="form-control form-control-md" ngModel="{{editproduct?.image2}}" type="text" name="image2" placeholder="Enter image url">
+</div>
+</div>
+<div class="form-group  ">
+    <label class="col-md-4" >Product Cost</label>
+    <div  class="col-md-10">
+    <input style="font-size: 1rem;" class="form-control form-control-md" ngModel="{{editproduct?.price}}" type="number" name="price" placeholder="Enter  product price">
+</div>
+</div>
+<div class="form-group  ">
+    <label class="col-md-6" >Product description</label>
+    <div  class="col-md-12">
+    <input style="font-size: 1rem;" class="form-control form-control-md" ngModel="{{editproduct?.description}}" type="text" name="description" placeholder="Enter description">
+</div>
+</div>
+
+<div  class=" text-center mt-3">
+    <!-- <a href="index.html" class="btn btn-lg btn-primary">Sign up</a> -->
+    <button  (click)="update(updateForm.value)"  class="btn btn-lg  btn-outline-success">Update</button> 
+</div>
+</form>
+      
+
+    
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+      
+  

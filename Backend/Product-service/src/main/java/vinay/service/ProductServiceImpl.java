@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import vinay.exception.InputException;
 import vinay.exception.ResourceNotFoundException;
 import vinay.model.Product;
-import vinay.model.Products;
+
 import vinay.repository.ProductRepository;
 
 @Service
@@ -73,10 +73,8 @@ public class ProductServiceImpl  implements ProductService{
 	@Override
 	public Product updateProduct(Product product) {
 		
-		if(pr.findByProductName(product.getProductName()).isPresent()==false) {
-			
-			throw new ResourceNotFoundException("Product not found  with id:"+product.getProductId());	
-			}
+		Optional.ofNullable(pr.findById(product.getProductId())
+				.orElseThrow(() -> new ResourceNotFoundException("Product not found with id :" + product.getProductId())));
 	      
 		return pr.save(product);
 	}

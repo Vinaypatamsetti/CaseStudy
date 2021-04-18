@@ -70,4 +70,9 @@ export class CartService {
     console.log("in service of delete item");
     return this.http.post<any>(`${this.apiServerUrl}/carts/deleteItemInCart/${CId}/${Id}`,{CId,Id});
   }
+  
+  public deleteCart(CId:number):Observable<void>{
+    return this.http.delete<void>(`${this.apiServerUrl}/carts/deleteCartById/${CId}`)
+  }
+
 }

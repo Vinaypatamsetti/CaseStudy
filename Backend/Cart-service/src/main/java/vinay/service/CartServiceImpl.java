@@ -116,7 +116,7 @@ public class CartServiceImpl implements CartService{
 		{
 			items.setProductName(re.getBody().getProductName());
 			items.setProductId(re.getBody().getProductId());
-			items.setImage(re.getBody().getImage().get(0));
+			items.setImage(re.getBody().getImage1());
 			items.setPrice(re.getBody().getPrice());
 			items.setQuantity(1);
 			cart.getItems().add(items);
@@ -128,6 +128,12 @@ public class CartServiceImpl implements CartService{
 		cart.setTotalPrice(cart.getTotalPrice()+cart.getItems().get(i).getPrice());
 		cr.save(cart);
 
+	}
+
+	@Override
+	public void deleteCartById(int cid) {
+	
+		cr.deleteById(cid);
 	}
     
 	

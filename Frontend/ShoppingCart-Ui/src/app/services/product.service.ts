@@ -24,4 +24,20 @@ export class ProductService  {
 public   getProduct(name: string): Observable<any> {
     return this.http.get(`${this.apiServerUrl}/products/getProductByName/${name}`);
   }
+
+ public getProductById(id:number):Observable<any>{
+  return this.http.get(`${this.apiServerUrl}/products/getProductById/${id}`);
+ } 
+
+  public addProduct(product:Product):Observable<Product>{
+    return this.http.post<Product>(`${this.apiServerUrl}/products/addProduct`,product);
+  }
+
+  public deleteProductById(id:number):Observable<void>{
+    return this.http.delete<void>(`${this.apiServerUrl}/products/deleteProductById/${id}`);
+  }
+
+  public updateProduct(product:Product):Observable<Product>{
+    return this.http.put<Product>(`${this.apiServerUrl}/products/updateProduct`,product)
+  }
 }

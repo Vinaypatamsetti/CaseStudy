@@ -23,6 +23,8 @@ public interface CartService {
 
 	void updateCart(int cid, int id);
 
+	void deleteCartById(int cid);
+
 	
 
 	

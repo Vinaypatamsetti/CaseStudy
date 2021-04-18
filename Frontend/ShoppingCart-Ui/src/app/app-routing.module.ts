@@ -11,6 +11,8 @@ import { DelivaryAgentComponent } from './components/register/delivary-agent/del
 import { GetProductComponent } from './components/shopping-cart/get-product/get-product.component'
 import { CartComponent } from './components/shopping-cart/cart/cart.component'
 import { AuthGuard } from './services/auth.guard'
+import { PostProductComponent } from './components/shopping-cart/post-product/post-product.component'
+import { UpdateProductComponent } from './components/shopping-cart/update-product/update-product.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/shop', pathMatch: 'full' },
@@ -20,7 +22,9 @@ const routes: Routes = [
   {path:'merchant',component:MerchantComponent},
   {path:'deliveryAgent',component:DelivaryAgentComponent},
   {path:'cart/:id',component:CartComponent,canActivate:[AuthGuard]},
+  {path:'manage Stock',component:PostProductComponent},
   {path:'product/:name',component:GetProductComponent},
+  {path:'updateProduct/:id',component:UpdateProductComponent},
   { path: 'shop', component: ShoppingCartComponent },
   { path: '**', component: PageNotFoundComponent }
 ]

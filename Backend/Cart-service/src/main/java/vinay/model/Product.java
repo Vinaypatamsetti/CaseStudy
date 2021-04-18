@@ -13,22 +13,26 @@ public class Product {
 	private String category;
 	private Map<Integer,Double> rating;
 	private Map<Integer,String> review;
-	private List<String> image;
+	private String  image1;
+	private String  image2;
 	private double price;
 	private String description;
 	private Map<String,String> specification;
 	
-	public Product(int productId, String productType, String productName, String category, Map<Integer, Double> rating,
-			Map<Integer, String> review, List<String> image, double price, String description,
-			Map<String, String> specification) {
 	
+
+	public Product(int productId, String productType, String productName, String category, Map<Integer, Double> rating,
+			Map<Integer, String> review, String image1, String image2, double price, String description,
+			Map<String, String> specification) {
+		super();
 		this.productId = productId;
 		this.productType = productType;
 		this.productName = productName;
 		this.category = category;
 		this.rating = rating;
 		this.review = review;
-		this.image = image;
+		this.image1 = image1;
+		this.image2 = image2;
 		this.price = price;
 		this.description = description;
 		this.specification = specification;
@@ -86,12 +90,21 @@ public class Product {
 		this.review = review;
 	}
 
-	public List<String> getImage() {
-		return image;
+	
+	public String getImage1() {
+		return image1;
 	}
 
-	public void setImage(List<String> image) {
-		this.image = image;
+	public void setImage1(String image1) {
+		this.image1 = image1;
+	}
+
+	public String getImage2() {
+		return image2;
+	}
+
+	public void setImage2(String image2) {
+		this.image2 = image2;
 	}
 
 	public double getPrice() {
@@ -121,9 +134,11 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [productId=" + productId + ", productType=" + productType + ", productName=" + productName
-				+ ", category=" + category + ", rating=" + rating + ", review=" + review + ", image=" + image
-				+ ", price=" + price + ", description=" + description + ", specification=" + specification + "]";
+				+ ", category=" + category + ", rating=" + rating + ", review=" + review + ", image1=" + image1
+				+ ", image2=" + image2 + ", price=" + price + ", description=" + description + ", specification="
+				+ specification + "]";
 	}
+
 	
 	
 	

@@ -10,8 +10,6 @@ import { NavComponent } from './components/shared/nav/nav.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { ProductListComponent } from './components/shopping-cart/product-list/product-list.component';
 import { CartComponent } from './components/shopping-cart/cart/cart.component';
-import { CartItemComponent } from './components/shopping-cart/cart/cart-item/cart-item.component';
-
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { PageNotFoundComponent } from './components/shared/page-not-found/page-not-found.component';
@@ -20,6 +18,9 @@ import { MerchantComponent } from './components/register/merchant/merchant.compo
 import { CustomerComponent } from './components/register/customer/customer.component';
 import { GetProductComponent } from './components/shopping-cart/get-product/get-product.component';
 import { TokenService } from './services/jwttoken.service';
+import { PostProductComponent } from './components/shopping-cart/post-product/post-product.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { UpdateProductComponent } from './components/shopping-cart/update-product/update-product.component';
 
 @NgModule({
   declarations: [
@@ -30,22 +31,24 @@ import { TokenService } from './services/jwttoken.service';
     ShoppingCartComponent,
     ProductListComponent,
     CartComponent,
-    CartItemComponent,
- 
     LoginComponent,
     RegisterComponent,
     PageNotFoundComponent,
     CustomerComponent,
     MerchantComponent,
     DelivaryAgentComponent,
-    GetProductComponent
+    GetProductComponent,
+    PostProductComponent,
+    UpdateProductComponent,
+    
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [
     [{

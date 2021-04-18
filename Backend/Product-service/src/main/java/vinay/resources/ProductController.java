@@ -59,7 +59,7 @@ public class ProductController {
 		return new ResponseEntity<List<Product>>(ps.getProductByType(type),HttpStatus.OK);
 	}
 	
-	@GetMapping("/getProductsByCategorye/{Category}")
+	@GetMapping("/getProductsByCategory/{Category}")
 	public ResponseEntity<List<Product>> getProductByCategory(@PathVariable("Category") String category){
 		return new ResponseEntity<List<Product>>(ps.getProductByCategory(category),HttpStatus.OK);
 	}

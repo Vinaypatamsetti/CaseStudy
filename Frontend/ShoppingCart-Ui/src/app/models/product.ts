@@ -5,10 +5,9 @@ export  interface Product{
 	category:string;
      rating:Map<number,number>;
 	 review:Map<number,string>;
-     image:Array<string>;
+     image1:string;
+	 image2:string;
 	 price:number;
 	 description:string;
-	 specification:Map<string,string>;
-
-    
+	 specification:Map<string,string>; 
 }

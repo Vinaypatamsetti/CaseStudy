@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 
-import { MessengerService } from 'src/app/services/messenger.service'
+
 import { Product } from 'src/app/models/product';
 import { CartService } from 'src/app/services/cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { Cart } from 'src/app/models/cart';
+import { HttpErrorResponse } from '@angular/common/http';
 // import { CartItem } from 'src/app/models/cart-item';
 
 @Component({
@@ -51,7 +52,7 @@ export class CartComponent implements OnInit  {
    public id:number;
    public cart:Cart;
   public cartitems:any;
-  public totalPrice:number;
+  public totalPrice=0;
   constructor(private cartService:CartService,private route:ActivatedRoute){
 
   }
@@ -83,6 +84,16 @@ export class CartComponent implements OnInit  {
       }
     );
   }
-
+  
+  public deleteEntireCart():void{
+    this.cartService.deleteCart(this.id).subscribe(
+      (response: void) => {
+        window.location.reload();
+      },
+      (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+    )
+  }
 
 }
