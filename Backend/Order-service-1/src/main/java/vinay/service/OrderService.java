@@ -14,18 +14,39 @@ public interface OrderService {
 
 	List<Orders> getOrderByCustomerId(int id);
 
-	List<Address> getAddByCustomerId(int id);
+	Address getAddByCustomerId(int id);
 
 	Orders findMaxByOrderId();
 
-	void placeOrder(Cart cart);
+	void placeOrder(int id, Address address);
 
-	Optional<Orders> getOrderByOrderId(int id);
+	Optional<Orders> getOrderByOrderId(String id);
 
 	void storeAddress(Address address);
+	
+	void changeOrderStatus(String status, String id);
+	
+	String deleteOrder(String id);
 
-	void changeOrderStatus(String status, int id);
-
-	String deleteOrder(int id);
-
+//	List<Orders> getAllOrders();
+//
+//	List<Address> getAllAddress();
+//
+//	List<Orders> getOrderByCustomerId(int id);
+//
+//	List<Address> getAddByCustomerId(int id);
+//
+//	Orders findMaxByOrderId();
+//
+//	void placeOrder(Cart cart);
+//
+//	Optional<Orders> getOrderByOrderId(int id);
+//
+//	void storeAddress(Address address);
+//
+//	void changeOrderStatus(String status, int id);
+//
+//	String deleteOrder(int id);
+ 
+	
 }

@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 import vinay.model.Orders;
 
-public interface OrderRepository extends MongoRepository<Orders,Integer>{
+public interface OrderRepository extends MongoRepository<Orders,String>{
 	
 	public List<Orders> findByCustomerId(int customerId);
 	

@@ -1,0 +1,47 @@
+<br>
+<br>
+<div *ngFor="let order of orders;let i=index">
+  
+<table class="table table-striped">
+   
+  <thead>
+     <tr>
+        <th>Order {{i+1}}</th>
+         <!-- <th>OrderId:{{order.orderId}}</th> -->
+         <th >TotalPrice {{order.amount}}</th>
+         <th class="text-danger">{{ order.orderStatus}}</th>
+           
+
+  </tr>
+  <p style="margin-left: 5%;"><strong>Address :</strong><br>
+    Full Name : {{order.address.fullName}}<br>
+    Mobile Number : {{order.address.mobileNumber}}<br>
+    Flat Details : {{order.address.flatDetails}}<br>
+    City : {{order.address.city}}<br>
+    pincode : {{order.address.pincode}}<br>
+    State : {{order.address.state}}<br>
+   </p>
+  
+  <tr>
+   
+    <th scope="col">Product Name</th>
+    <th scope="col">Price</th>
+    <th scope="col">Quantity</th>
+    <th>&nbsp;</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let pro of order.product">
+   
+    <td>
+      {{pro.productName}}
+    
+    </td>
+    <td>{{pro.price}}</td>
+    <td>{{pro.quantity}}</td>
+    <td>&nbsp;</td>
+  </tr>
+  </tbody>
+</table>
+<br>
+</div>

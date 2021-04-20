@@ -1,22 +1,23 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
 
 // import { CartItem } from '../models/cart-item';
 
-import { Product } from '../models/product';
 import { environment } from 'src/environments/environment';
+import { ActivatedRoute } from '@angular/router';
+import { Address } from '../models/address';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CartService {
+export class CartService  {
+   
   
   private apiServerUrl= environment.apiBaseUrl;
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient,private route:ActivatedRoute) { }
 
-
+     
   // constructor(private http: HttpClient) { }
 
   // getCartItems(): Observable<CartItem[]> {
@@ -74,5 +75,11 @@ export class CartService {
   public deleteCart(CId:number):Observable<void>{
     return this.http.delete<void>(`${this.apiServerUrl}/carts/deleteCartById/${CId}`)
   }
+   
+
+  public placeOrder(id:number,address:Address):Observable<any>{
+    return this.http.post<any>(`${this.apiServerUrl}/orders/placeOrder/${id}`,address);
+  }
+
 
 }

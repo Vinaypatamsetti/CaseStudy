@@ -46,9 +46,10 @@ public class OrderController {
 	}
 
 	@GetMapping("/getAddByCustomerId/{id}")
-	public List<Address> getAddByCustomerId(@PathVariable("id") int id)
+	public Address getAddByCustomerId(@PathVariable("id")  int id)
 	{
 		return orderService.getAddByCustomerId(id);
+		
 	}
 
 	@GetMapping("/findMaxByOrderId")
@@ -57,37 +58,35 @@ public class OrderController {
 		return orderService.findMaxByOrderId();
 	}
 
-	@PostMapping("/placeOrder")
-	public void placeOrder(@RequestBody Cart cart)
+	@PostMapping("/placeOrder/{id}")
+	public void placeOrder(@PathVariable("id") int id,@RequestBody Address address)
 	{
-		orderService.placeOrder(cart);
+		orderService.placeOrder(id,address);
 	}
 
 
-	//	public void onlinePayment(@RequestBody Cart cart) {
-	//		
-	//	}
+	
 
-	@GetMapping("getOrderByOrderId/{id}")
-	public Optional<Orders> getOrderByOrderId(@PathVariable("id") int id)
+	@GetMapping("/getOrderByOrderId/{id}")
+	public Optional<Orders> getOrderByOrderId(@PathVariable("id") String id)
 	{
 		return orderService.getOrderByOrderId(id);
 	}
 
-	@PostMapping("storeAddress")
+	@PostMapping("/storeAddress")
 	public void storeAddress(@RequestBody Address address)
 	{
 		orderService.storeAddress(address);
 	}
 
 	@PutMapping("/changeOrderStatus/{id}")
-	public void changeOrderStatus(String status,@PathVariable("id") int id) 
+	public void changeOrderStatus(String status,@PathVariable("id") String id) 
 	{
 		orderService.changeOrderStatus(status,id);
 	}
 
 	@DeleteMapping("/deleteOrder/{id}")
-	public ResponseEntity<String> deleteOrder(@PathVariable("id") int id)
+	public ResponseEntity<String> deleteOrder(@PathVariable("id") String id)
 	{
 		return new ResponseEntity<String>(orderService.deleteOrder(id),HttpStatus.OK);
 	}

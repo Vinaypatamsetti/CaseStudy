@@ -6,6 +6,8 @@ import { CartService } from 'src/app/services/cart.service';
 import { ActivatedRoute } from '@angular/router';
 import { Cart } from 'src/app/models/cart';
 import { HttpErrorResponse } from '@angular/common/http';
+import { UsersService } from 'src/app/services/users.service';
+import { LoginService } from 'src/app/services/login.service';
 // import { CartItem } from 'src/app/models/cart-item';
 
 @Component({
@@ -50,18 +52,32 @@ export class CartComponent implements OnInit  {
   // }
    
    public id:number;
+   public cid:number;
    public cart:Cart;
   public cartitems:any;
   public totalPrice=0;
-  constructor(private cartService:CartService,private route:ActivatedRoute){
+  constructor(private cartService:CartService,private route:ActivatedRoute,private user:LoginService){
 
   }
   ngOnInit() {
     this.id=this.route.snapshot.params['id'];
     this.showCartById(this.id);
   }
+  
+  // public crt(){
+  //   if(this.cid==this.id){
+  //     }
+  // }
 
+  //  public getUserdetails(){
+  //    this.user.getUser().subscribe(
+  //      (response:any)=>{
+  //        this.cid=response.id;
+  //      }
+  //    )
+  //  }
   public showCartById(id:number):void{
+
     this.cartService.getCartWithId(id).subscribe(
       (response:Cart)=>{
         this.cartitems=response.items;

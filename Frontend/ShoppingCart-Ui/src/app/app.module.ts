@@ -21,7 +21,12 @@ import { TokenService } from './services/jwttoken.service';
 import { PostProductComponent } from './components/shopping-cart/post-product/post-product.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { UpdateProductComponent } from './components/shopping-cart/update-product/update-product.component';
-
+import { OrdersComponent } from './components/orders/orders.component';
+import { PurchasesComponent } from './components/purchases/purchases.component';
+import {MatTableModule} from '@angular/material/table';
+import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DeliveryComponent } from './components/delivery/delivery.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,7 +45,10 @@ import { UpdateProductComponent } from './components/shopping-cart/update-produc
     GetProductComponent,
     PostProductComponent,
     UpdateProductComponent,
-    
+    OrdersComponent,
+    PurchasesComponent,
+    DeliveryComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -48,14 +56,19 @@ import { UpdateProductComponent } from './components/shopping-cart/update-produc
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgbModule
+    NgbModule,
+    BrowserAnimationsModule,
+    MatTableModule
   ],
   providers: [
     [{
       provide: HTTP_INTERCEPTORS,
       useClass: TokenService,
       multi: true
-    }]
+    }],[
+      { provide: MAT_FORM_FIELD_DEFAULT_OPTIONS, useValue: { appearance: 'fill' } },
+    ]
+
   ],
   bootstrap: [AppComponent]
 })

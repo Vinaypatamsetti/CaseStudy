@@ -1,7 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Address } from '../models/address';
 import { Token } from '../models/token';
 import { UserProfile } from '../models/userProfile';
 
@@ -29,5 +31,8 @@ export class UsersService {
         return this.http.post<UserProfile>(`${this.apiServerUrl}/users/add/DeliveryAgent`,userprofile);
   }
 
-
+  public addAddress(address:Address):Observable<Address>{
+    return this.http.post<Address>(`${this.apiServerUrl}/orders/storeAddress`,address);
+  }
+  
 }

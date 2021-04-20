@@ -1,0 +1,73 @@
+
+        <div >
+            <div class="container h-100">
+                <div class="row h-100">
+                    <div class="col-sm-3 col-md-4 col-lg-6  mx-auto d-table h-100">
+                        <div class="d-table-cell align-middle">
+                            <div class="card">
+             <div class="card-body">
+            <form  #addressForm="ngForm" >
+                <div class="form-group  ">
+                    <label  class="col-md-6">Name </label>
+                    <div  class="col-md-8" >
+                    <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="fullName" placeholder="Enter your name">
+                </div>
+            </div>
+            <div class="form-group  ">
+                <label class="col-md-6" >Mobile</label>
+                <div  class="col-md-8">
+                <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="mobileNumber" placeholder="Enter your mobile  number">
+            </div>
+        </div>
+
+    
+    
+    <div class="form-group  ">
+        <label class="col-md-3" >City</label>
+        <div  class="col-md-8">
+        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="city" placeholder="Enter your city">
+    </div>
+    </div>
+    
+    <div class="form-group  ">
+        <label class="col-md-3" >PinCode</label>
+        <div  class="col-md-8">
+        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="pincode" placeholder="pincode">
+    </div>
+    </div>
+
+
+
+    <div class="form-group  ">
+        <label class="col-md-4" >State</label>
+        <div  class="col-md-8">
+        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="state" placeholder="Enter your state">
+    </div>
+    </div>
+
+    
+        <div class="form-group  ">
+            <label class="col-md-6" >FlatDetails</label>
+            <div  class="col-md-10">
+            <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="flatDetails" placeholder="Enter street, flat No">
+        </div>
+    </div>
+    
+    <div  class=" text-center mt-3">
+        <!-- <a href="index.html" class="btn btn-lg btn-primary">Sign up</a> -->
+        <button type="submit"  (click)="addAddress(addressForm.value,addressForm)" class="btn   btn-outline-success">Purchase</button> 
+    </div>
+    </form>
+     </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    </div>
+          
+      
+     
+   
+  
+  

@@ -9,18 +9,18 @@ public class Address {
 	private int customerId;
 	private String fullName;
 	private String mobileNumber;
-	private int flatNumber;
+	private String flatDetails;
 	private String city;
 	private int pincode;
 	private String state;
 	
 	
-	public Address(int customerId, String fullName, String mobileNumber, int flatNumber, String city, int pincode,
-			String state) {
+	public Address(int customerId, String fullName, String mobileNumber, String flatDetails, String city, int pincode,
+		String state) {
 		this.customerId = customerId;
 		this.fullName = fullName;
 		this.mobileNumber = mobileNumber;
-		this.flatNumber = flatNumber;
+		this.flatDetails = flatDetails;
 		this.city = city;
 		this.pincode = pincode;
 		this.state = state;
@@ -50,12 +50,7 @@ public class Address {
 	public void setMobileNumber(String mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
-	public int getFlatNumber() {
-		return flatNumber;
-	}
-	public void setFlatNumber(int flatNumber) {
-		this.flatNumber = flatNumber;
-	}
+	
 	public String getCity() {
 		return city;
 	}
@@ -76,11 +71,23 @@ public class Address {
 	}
 
 
+	public String getFlatDetails() {
+		return flatDetails;
+	}
+
+
+	public void setFlatDetails(String flatDetails) {
+		this.flatDetails = flatDetails;
+	}
+
+
 	@Override
 	public String toString() {
 		return "Address [customerId=" + customerId + ", fullName=" + fullName + ", mobileNumber=" + mobileNumber
-				+ ", flatNumber=" + flatNumber + ", city=" + city + ", pincode=" + pincode + ", state=" + state + "]";
+				+ ", flatDetails=" + flatDetails + ", city=" + city + ", pincode=" + pincode + ", state=" + state + "]";
 	}
+
+
 	
 	
 
