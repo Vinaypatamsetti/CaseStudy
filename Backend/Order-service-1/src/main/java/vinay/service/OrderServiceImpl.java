@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import vinay.exception.ResourceNotFoundException;
 import vinay.model.Address;
 import vinay.model.Cart;
 import vinay.model.Orders;
@@ -31,22 +32,35 @@ public class OrderServiceImpl implements OrderService{
 
 	@Override
 	public List<Orders> getAllOrders() {
+		if(orderRepository.findAll().size()==0) {
+			throw new ResourceNotFoundException("No orders are placed");
+		}
 		return orderRepository.findAll();
 	}
 
 	@Override
 	public List<Address> getAllAddress() {
+		if(addressRepository.findAll().size()==0) {
+			throw new ResourceNotFoundException("No Address are found");
+		}
 		
 		return  addressRepository.findAll();
 	}
 
 	@Override
 	public List<Orders> getOrderByCustomerId(int id) {
+		if(orderRepository.findByCustomerId(id).size()==0) {
+			throw new ResourceNotFoundException("No orders are placed by customer with id"+id);
+		}
 		return orderRepository.findByCustomerId(id);
 	}
 
 	@Override
 	public  Address getAddByCustomerId(int id) {
+		
+		if(addressRepository.findByCustomerId(id)==null) {
+			throw new ResourceNotFoundException("Address not found for customer with id"+id);
+		}
 		return addressRepository.findByCustomerId(id);
 	}
 
@@ -101,18 +115,28 @@ public class OrderServiceImpl implements OrderService{
 
 	@Override
 	public Optional<Orders> getOrderByOrderId(String id) {
-		
+		if(orderRepository.findById(id).isEmpty()) {
+			throw new ResourceNotFoundException("Order not found with orderId:"+id);
+		}
 		return orderRepository.findById(id);
 	}
 
 	@Override
 	public void changeOrderStatus(String status, String id) {
+		
+		if(orderRepository.findById(id).isEmpty()) {
+			throw new ResourceNotFoundException("Order not found with orderId:"+id+" to change the status");
+		}
 		orderRepository.findById(id).get().setOrderStatus(status);
 		
 	}
 
 	@Override
 	public String deleteOrder(String id) {
+		
+		if(orderRepository.findById(id).isEmpty()) {
+			throw new ResourceNotFoundException("Order not found with orderId:"+id+" to delete");
+		}
 		
 		orderRepository.deleteById(id);
 		return "Order Deleted Successfully";

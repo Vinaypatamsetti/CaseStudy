@@ -12,6 +12,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import vinay.exception.InputException;
+import vinay.exception.ResourceNotFoundException;
 import vinay.model.Cart;
 import vinay.model.Items;
 import vinay.model.Product;
@@ -44,13 +46,21 @@ public class CartServiceImpl implements CartService{
 	@Override
 	public Cart getCartById(int id) {
 		
+//		  if(cr.findByCartId(id)==null) {
+//			  
+//			throw new ResourceNotFoundException("Cart not found with id:"+id);
+//		  }
+//		
 		return cr.findByCartId(id);
 	}
 	
 
 	@Override
 	public void addCart(int id) {
-		
+		    if(cr.findByCartId(id)!=null) {
+		    	
+		     throw new InputException("Cart already exists with id:"+id);
+		    }
 		Cart cart=new Cart();
 		List<Items> list= new ArrayList<>();
 		
@@ -62,7 +72,10 @@ public class CartServiceImpl implements CartService{
 
 	@Override
 	public List<Cart> getAllCarts() {
-	
+		
+	      if(cr.findAll().size()==0) {
+	    	  throw new ResourceNotFoundException("No carts are found");
+	      }
 		return cr.findAll();
 	}
 
@@ -80,7 +93,7 @@ public class CartServiceImpl implements CartService{
 	public void updateCart(int cid,int id) {
 		if(cr.findByCartId(cid)==null)
 		{
-			//throw new InputErrorException("Cart Not Found with Id "+cid);
+			throw new ResourceNotFoundException("Cart Not Found with Id "+cid);
 		}
 		Cart cart = cr.findByCartId(cid);                 //getCartById(cid);
 		cart.setTotalPrice(cart.getTotalPrice()-(cart.getItems().get(id).getPrice()*cart.getItems().get(id).getQuantity()));
@@ -92,7 +105,7 @@ public class CartServiceImpl implements CartService{
 	public void addToCart(int cId, int pId) {
 		if(cr.findByCartId(cId)==null)
 		{
-		//	throw new ResourceNotFoundException("Cart Not Found with Id "+cId);
+			throw new ResourceNotFoundException("Cart Not Found with Id "+cId);
 		}
 		Cart cart = getCartById(cId);
 		Items items = new Items();
@@ -101,7 +114,7 @@ public class CartServiceImpl implements CartService{
 		ResponseEntity<Product> re = restTemplate.getForEntity("http://localhost:8082/products/getProductById/{Id}", Product.class,pId);
 		if(re==null)
 		{
-			//throw new ResourceNotFoundException("Product Not Found with Id "+pId);
+			throw new ResourceNotFoundException("Product Not Found with Id "+pId);
 		}
 		for(i=0;i<cart.getItems().size();i++)
 		{
@@ -132,7 +145,10 @@ public class CartServiceImpl implements CartService{
 
 	@Override
 	public void deleteCartById(int cid) {
-	
+		
+	         if(cr.findByCartId(cid)==null) {
+	        	 throw new ResourceNotFoundException("Cart Not found with id:"+cid+" to delete");
+	         }
 		cr.deleteById(cid);
 	}
     

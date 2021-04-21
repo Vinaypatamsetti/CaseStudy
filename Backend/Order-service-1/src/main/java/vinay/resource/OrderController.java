@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import vinay.model.Address;
-import vinay.model.Cart;
+
 import vinay.model.Orders;
 import vinay.service.OrderService;
 @RestController

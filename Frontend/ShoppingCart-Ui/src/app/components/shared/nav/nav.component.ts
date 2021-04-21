@@ -72,6 +72,7 @@ export class NavComponent implements OnInit {
   logout()
   {
     this.loginService.logout();
+    window.location.href="/shop";
   }
   
   public addCart(id:number):void{
