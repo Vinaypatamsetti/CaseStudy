@@ -36,6 +36,7 @@ export class CustomerComponent implements OnInit {
         console.log(response);
        
         addForm.reset();
+        this.router.navigate(['login'])
       },
       (error: HttpErrorResponse) => {
         alert(error.message);

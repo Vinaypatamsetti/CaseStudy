@@ -27,6 +27,7 @@ import {MatTableModule} from '@angular/material/table';
 import {MAT_FORM_FIELD_DEFAULT_OPTIONS} from '@angular/material/form-field';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DeliveryComponent } from './components/delivery/delivery.component';
+import { PaymentComponent } from './components/payment/payment.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -48,6 +49,7 @@ import { DeliveryComponent } from './components/delivery/delivery.component';
     OrdersComponent,
     PurchasesComponent,
     DeliveryComponent,
+    PaymentComponent,
   
   ],
   imports: [

@@ -16,6 +16,10 @@ import { UpdateProductComponent } from './components/shopping-cart/update-produc
 import { OrdersComponent } from './components/orders/orders.component'
 import { PurchasesComponent } from './components/purchases/purchases.component'
 import { DeliveryComponent } from './components/delivery/delivery.component'
+import { DAgentGuardGuard } from './services/d-agent-guard.guard'
+import { MerchantGuardGuard } from './services/merchant-guard.guard'
+import { CustomerGuardGuard } from './services/customer-guard.guard'
+import { PaymentComponent } from './components/payment/payment.component'
 
 const routes: Routes = [
   { path: '', redirectTo: '/shop', pathMatch: 'full' },
@@ -25,12 +29,13 @@ const routes: Routes = [
   {path:'merchant',component:MerchantComponent},
   {path:'deliveryAgent',component:DelivaryAgentComponent},
   {path:'cart/:id',component:CartComponent,canActivate:[AuthGuard]},
-  {path:'manage Stock',component:PostProductComponent},
+  {path:'manageStock',component:PostProductComponent,canActivate:[MerchantGuardGuard]},
   {path:'product/:name',component:GetProductComponent},
   {path:'updateProduct/:id',component:UpdateProductComponent},
   {path:'purchase',component:OrdersComponent},
-  {path:'orders/:id',component:PurchasesComponent},
-  {path:'delivery',component:DeliveryComponent},
+  {path:'orders/:id',component:PurchasesComponent,canActivate:[CustomerGuardGuard]},
+  {path:'delivery',component:DeliveryComponent,canActivate:[DAgentGuardGuard]},
+  {path:'payment',component:PaymentComponent},
   { path: 'shop', component: ShoppingCartComponent },
   { path: '**', component: PageNotFoundComponent }
 ]

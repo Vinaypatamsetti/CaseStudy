@@ -10,13 +10,13 @@
                 <div class="form-group  ">
                     <label  class="col-md-6">Name </label>
                     <div  class="col-md-8" >
-                    <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="fullName" placeholder="Enter your name">
+                    <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="fullName" required placeholder="Enter your name">
                 </div>
             </div>
             <div class="form-group  ">
                 <label class="col-md-6" >Mobile</label>
                 <div  class="col-md-8">
-                <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="mobileNumber" placeholder="Enter your mobile  number">
+                <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="mobileNumber" required placeholder="Enter your mobile  number">
             </div>
         </div>
 
@@ -25,14 +25,14 @@
     <div class="form-group  ">
         <label class="col-md-3" >City</label>
         <div  class="col-md-8">
-        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="city" placeholder="Enter your city">
+        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="city" required placeholder="Enter your city">
     </div>
     </div>
     
     <div class="form-group  ">
         <label class="col-md-3" >PinCode</label>
         <div  class="col-md-8">
-        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="pincode" placeholder="pincode">
+        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="pincode" required placeholder="pincode">
     </div>
     </div>
 
@@ -41,7 +41,7 @@
     <div class="form-group  ">
         <label class="col-md-4" >State</label>
         <div  class="col-md-8">
-        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="state" placeholder="Enter your state">
+        <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="state" required placeholder="Enter your state">
     </div>
     </div>
 
@@ -49,13 +49,14 @@
         <div class="form-group  ">
             <label class="col-md-6" >FlatDetails</label>
             <div  class="col-md-10">
-            <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="flatDetails" placeholder="Enter street, flat No">
+            <input style="font-size: 1rem;" class="form-control form-control-md" ngModel type="text" name="flatDetails" required placeholder="Enter street, flat No">
         </div>
     </div>
     
     <div  class=" text-center mt-3">
         <!-- <a href="index.html" class="btn btn-lg btn-primary">Sign up</a> -->
-        <button type="submit"  (click)="addAddress(addressForm.value,addressForm)" class="btn   btn-outline-success">Purchase</button> 
+        <button type="submit" [disabled]="addressForm.invalid" (click)="addAddress(addressForm.value,addressForm)" class="btn   btn-outline-success">Pay Online</button> 
+        <button type="submit" style="margin-left: 8%;" [disabled]="addressForm.invalid" (click)="Address(addressForm.value,addressForm)" class="btn   btn-outline-success">COD</button> 
     </div>
     </form>
      </div>

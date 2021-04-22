@@ -1,11 +1,11 @@
 export interface UserProfile{
     id: number;
-	fullName:  String ;
-	imageUrl: String;
-	email: String;
+	fullName:  string ;
+	imageUrl: string;
+	email: string;
 	mobileNo: number;
 	dob:Date;
-	  gender: String;
-	   role: String;
-	 password: String;
+	gender: string;
+	role: string;
+	 password: string;
 }

@@ -160,3 +160,24 @@ body{margin-top:20px;
         font-size: 18px;
         font-weight: 300;
     }
+
+
+    
+.card {
+    margin-bottom: 1rem;
+    box-shadow: 0 1px 15px 1px rgba(52,40,104,.08);
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: rgb(248, 246, 246);
+    background-clip: border-box;
+    border: 1px solid #e5e9f2;
+    border-radius: .2rem;
+}

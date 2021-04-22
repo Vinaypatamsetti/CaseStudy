@@ -80,7 +80,7 @@ public class OrderController {
 	}
 
 	@PutMapping("/changeOrderStatus/{id}")
-	public void changeOrderStatus(String status,@PathVariable("id") String id) 
+	public void changeOrderStatus(@RequestBody String status,@PathVariable("id") String id) 
 	{
 		orderService.changeOrderStatus(status,id);
 	}

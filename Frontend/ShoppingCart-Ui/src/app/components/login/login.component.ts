@@ -28,7 +28,7 @@ public login(loginForm:NgForm): void{
       console.log(this.token.token);
     
    
-      this.loginService.loginUser(this.token.token);
+      this.loginService.loginUser(this.token);
       loginForm.reset();
       window.location.href="/shop";
      },

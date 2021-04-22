@@ -77,9 +77,7 @@ export class CartService  {
   }
    
 
-  public placeOrder(id:number,address:Address):Observable<any>{
-    return this.http.post<any>(`${this.apiServerUrl}/orders/placeOrder/${id}`,address);
-  }
+  
 
 
 }

@@ -124,11 +124,13 @@ public class OrderServiceImpl implements OrderService{
 	@Override
 	public void changeOrderStatus(String status, String id) {
 		
-		if(orderRepository.findById(id).isEmpty()) {
-			throw new ResourceNotFoundException("Order not found with orderId:"+id+" to change the status");
-		}
-		orderRepository.findById(id).get().setOrderStatus(status);
-		
+//		if(orderRepository.findById(id).isEmpty()) {
+//			throw new ResourceNotFoundException("Order not found with orderId:"+id+" to change the status");
+//		}
+	// Orders order=orderRepository.findById(id).get().setOrderStatus(status);
+		Orders order=orderRepository.findByOrderId(id);
+		 order.setOrderStatus(status);
+		orderRepository.save(order);
 	}
 
 	@Override

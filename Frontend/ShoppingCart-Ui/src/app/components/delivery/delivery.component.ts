@@ -13,6 +13,7 @@ export class DeliveryComponent implements OnInit {
 
   public orders:any;
   public id:number;
+  public text:string;
   constructor(private orderService:OrdersService,private route:ActivatedRoute) { }
 
   ngOnInit() {
@@ -20,6 +21,17 @@ export class DeliveryComponent implements OnInit {
     this.getOrders();
   }
   
+
+   public change(id:number):void{
+     this.text="Delivered";
+     this.orderService.changeStatus(id,this.text).subscribe(
+       (response:any)=>{
+          
+       }, (error: HttpErrorResponse) => {
+        alert(error.message);
+      }
+     );
+   }
 
   public getOrders():void{
     this.orderService.deliveries().subscribe(

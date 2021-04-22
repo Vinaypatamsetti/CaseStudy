@@ -10,7 +10,7 @@
          <!-- <th>OrderId:{{order.orderId}}</th> -->
          <th >TotalPrice {{order.amount}}</th>
          <th class="text-danger">{{ order.orderStatus}}</th>
-           
+          <th><button type="button" (click)="change(order.orderId)" class="btn btn-success">Delivered</button></th>           
 
   </tr>
   <p style="margin-left: 5%;"><strong>Address :</strong><br>
