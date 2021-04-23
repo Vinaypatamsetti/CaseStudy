@@ -22,6 +22,7 @@ export class PostProductComponent implements OnInit {
       (response:any)=>{
         console.log(response);
         addForm.reset();
+        window.location.href="/shop";
       }
     );
   }

@@ -6,25 +6,30 @@
     <a class="p-2 text-dark" [routerLink]="['/shop']">Shop</a>
     <a class="p-2 text-dark" href="#">Support</a>
     <!-- <a class="p-2 text-dark" *ngIf="customer" [routerLink]="['/cart']">Cart</a> -->
-    <a class="p-2 text-dark" *ngIf="customer"  href="cart/{{id}}">Cart</a>
+    <!-- <a class="p-2 text-dark" *ngIf="customer"  href="cart/{{id}}">Cart</a>
      <a class="p-2 text-dark" *ngIf="merchant" [routerLink]="['/manageStock']">Add Products</a> 
-     <a class="p-2 text-dark" *ngIf="deliveryAgent" href="delivery" >Deliveries</a> 
-  </nav>
-  <a class="btn btn-primary" *ngIf="!loggedIn" [routerLink]="['/register']">Sign up</a>
-  <a class="btn btn-outline-secondary" *ngIf="!loggedIn" [routerLink]="['/login']">Login</a>
-  <a class="btn btn-outline-secondary" *ngIf="loggedIn" (click)="logout()">SignOut</a>
+     <a class="p-2 text-dark" *ngIf="deliveryAgent" href="delivery" >Deliveries</a>  -->
+   </nav> 
+  <!-- <a class="btn btn-primary" *ngIf="!loggedIn" [routerLink]="['/register']">Sign up</a> -->
+  <!-- <a class="btn btn-outline-secondary" *ngIf="!loggedIn" [routerLink]="['/login']">Login</a> -->
+  <!-- <a class="btn btn-outline-secondary" *ngIf="loggedIn" (click)="logout()">SignOut</a> -->
 
-  <!-- <div class="row">
+  <div class="row">
     <div class="col">
       <div ngbDropdown class="d-inline-block">
-        <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>Toggle dropdown</button>
+        <button class="btn btn-primary" id="dropdownBasic1" ngbDropdownToggle>Menu</button>
         <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
-          <a class="p-2 text-dark" *ngIf="customer"  href="cart/{{id}}">Cart</a>
-          <button ngbDropdownItem>Another Action</button>
-          <button ngbDropdownItem>Something else is here</button>
+          <a  ngbDropdownItem *ngIf="!loggedIn" [routerLink]="['/register']">Signup</a>
+          <a ngbDropdownItem *ngIf="customer"  href="cart/{{id}}">Cart</a>
+          <a ngbDropdownItem *ngIf="customer"  href="orders/{{id}}">Orders</a>
+          <a ngbDropdownItem *ngIf="!loggedIn" [routerLink]="['/login']">Login</a>
+          <a ngbDropdownItem *ngIf="merchant" [routerLink]="['/manageStock']">Add Products</a>
+          <a ngbDropdownItem *ngIf="deliveryAgent"[routerLink]="['/delivery']">Deliveries</a>
+          <a ngbDropdownItem *ngIf="loggedIn" (click)="logout()" >Logout</a>
         </div>
       </div>
-    </div> -->
+    </div>
   
 
 </div>
+  
