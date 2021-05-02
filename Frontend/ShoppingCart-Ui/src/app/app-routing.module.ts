@@ -35,7 +35,7 @@ const routes: Routes = [
   {path:'purchase',component:OrdersComponent},
   {path:'orders/:id',component:PurchasesComponent,canActivate:[CustomerGuardGuard]},
   {path:'delivery',component:DeliveryComponent,canActivate:[DAgentGuardGuard]},
-  {path:'payment',component:PaymentComponent},
+  {path:'profile/:id',component:PaymentComponent},
   { path: 'shop', component: ShoppingCartComponent },
   { path: '**', component: PageNotFoundComponent }
 ]

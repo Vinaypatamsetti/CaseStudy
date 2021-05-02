@@ -22,10 +22,10 @@
                 <ul class="social">
                    <li> <a  href="product/{{product.productName}}"     data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
                    
-                    <li><a href="cart/{{Cid}}" (click)="AddProductToCart(product.productId)" *ngIf="!merchant"  data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
+                    <li><a href="cart/{{Cid}}" (click)="AddProductToCart(product.productId)" *ngIf="!merchant || deliveryAgent"  data-tip="Add to Cart"><i class="fa fa-shopping-cart"></i></a></li>
                     <li><a  (click)="RemoveProduct(product.productId)"  *ngIf="merchant"  data-tip="Delete"><i class="fa fa-trash"></i></a></li>
                 </ul>
-                <a class="add-to-cart"  href="cart/{{Cid}}" *ngIf="!merchant" (click)="AddProductToCart(product.productId)">Add to cart</a>
+                <a class="add-to-cart"  href="cart/{{Cid}}" *ngIf="!merchant ||  deliveryAgent " (click)="AddProductToCart(product.productId)">Add to cart</a>
                 <a class="add-to-cart"   *ngIf="merchant"  href="updateProduct/{{product.productId}}">Update</a>
             </div>
               <div class="product-content">

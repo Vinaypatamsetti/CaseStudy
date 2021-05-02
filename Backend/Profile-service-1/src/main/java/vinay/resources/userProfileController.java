@@ -31,7 +31,8 @@ public class userProfileController {
 	@Autowired
 	private SequenceGeneratorService sequenceGeneratorService;
 
-
+    
+	//Post method to register a user as a customer
 	@PostMapping("/add/Customer")
 	public userProfile addNewCustomer( @Valid @RequestBody userProfile user) {
 		user.setId(sequenceGeneratorService.generateSequence(userProfile.SEQUENCE_NAME));
@@ -39,42 +40,53 @@ public class userProfileController {
 		return ps.addNewCustomer(user);
 	}
 
+	//Post method to register a user as a Merchant
 	@PostMapping("/add/Merchant")
 	public void addNewMerchant(@Valid @RequestBody userProfile user) {
 		user.setId(sequenceGeneratorService.generateSequence(userProfile.SEQUENCE_NAME));
 		ps.addNewMerchant(user);
 	}
 
+	
+	//Post method to register a user as a deliveryAgent
 	@PostMapping("/add/DeliveryAgent")
 	public void addNewDelivaryAgent(@Valid @RequestBody userProfile user) {
 		user.setId(sequenceGeneratorService.generateSequence(userProfile.SEQUENCE_NAME));
 		ps.addNewDelivaryAgent(user);
 	}
-
+     
+	
+	
+	//Get method to view all profiles  
 	@GetMapping("/getAllProfiles")
 	public List<userProfile> getAllProfiles(){
 		return ps.getAllProfiles();
 
 	}
-
+      
+	//Get method to view certain profile by user id
 	@GetMapping("/getProfileById/{id}")
 	public Optional<userProfile> getProfileById(@PathVariable("id") int id){
 		return ps.getProfileById(id);
 
 
 	}
-
+   
+	//Get method to view certain profile by mobile number
 	@GetMapping("/getProfileByMobile/{mobile}")
 	public userProfile getProfileByMobile(@PathVariable("mobile") long mobile) {
 		return ps.getProfileByMobile(mobile); 
 	}
 
+	
+	//Put method to update profile 
 	@PutMapping("/updateProfile")
 	public userProfile updateProfile(@RequestBody userProfile user) {
 		return ps.updateProfile(user);
 
 	}
-
+     
+	//Delete method to delete particular profile by user id
 	@DeleteMapping("/deleteProfileById/{Id}")
 	public void deleteProfile(@PathVariable("Id") int id) {
 		

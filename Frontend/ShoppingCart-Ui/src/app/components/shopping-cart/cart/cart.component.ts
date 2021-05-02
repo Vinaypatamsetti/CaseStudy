@@ -8,7 +8,6 @@ import { Cart } from 'src/app/models/cart';
 import { HttpErrorResponse } from '@angular/common/http';
 import { UsersService } from 'src/app/services/users.service';
 import { LoginService } from 'src/app/services/login.service';
-// import { CartItem } from 'src/app/models/cart-item';
 
 @Component({
   selector: 'app-cart',
@@ -17,39 +16,7 @@ import { LoginService } from 'src/app/services/login.service';
 })
 export class CartComponent implements OnInit  {
 
-  // cartItems = [];
 
-  // cartTotal = 0
-
-  // constructor(
-  //   private msg: MessengerService,
-  //   private cartService: CartService
-  // ) { }
-
-  // ngOnInit() {
-  //   this.handleSubscription();
-  //   this.loadCartItems();
-  // }
-
-  // handleSubscription() {
-  //   this.msg.getMsg().subscribe((product: Product) => {
-  //     this.loadCartItems();
-  //   })
-  // }
-
-  // // loadCartItems() {
-  // //   this.cartService.getCartItems().subscribe((items: CartItem[]) => {
-  // //     this.cartItems = items;
-  // //     this.calcCartTotal();
-  // //   })
-  // // }
-
-  // calcCartTotal() {
-  //   this.cartTotal = 0
-  //   this.cartItems.forEach(item => {
-  //     this.cartTotal += (item.qty * item.price)
-  //   })
-  // }
    
    public id:number;
    public cid:number;
@@ -64,18 +31,7 @@ export class CartComponent implements OnInit  {
     this.showCartById(this.id);
   }
   
-  // public crt(){
-  //   if(this.cid==this.id){
-  //     }
-  // }
-
-  //  public getUserdetails(){
-  //    this.user.getUser().subscribe(
-  //      (response:any)=>{
-  //        this.cid=response.id;
-  //      }
-  //    )
-  //  }
+  
   public showCartById(id:number):void{
 
     this.cartService.getCartWithId(id).subscribe(
@@ -83,9 +39,7 @@ export class CartComponent implements OnInit  {
         this.cartitems=response.items;
         this.totalPrice=response.totalPrice;
         console.log("showing cart of id 2");
-        // console.log(response);
-        // console.log(response.items[0].quantity);
-        // console.log(response.items[0].productName);
+       
       }
     );
   }

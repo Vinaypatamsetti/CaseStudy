@@ -17,8 +17,6 @@ public class profileController {
 	@Autowired
 	private ProfileService profileService;
 
-//	@Autowired
-//	private CartService cartService;
 
 	    @GetMapping("/test")
 	    public String geti(HttpServletRequest request) {

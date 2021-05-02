@@ -17,9 +17,11 @@ public class ProductServiceImpl  implements ProductService{
 	
 	@Autowired
 	private ProductRepository pr;
-
+    
+	
 	@Override
 	public void addProducts(Product product) {
+		//if products already exists merchant get Input exception
 		if(pr.findById(product.getProductId()).isPresent()==true) {
 			throw new InputException("Product already exists");
 		}

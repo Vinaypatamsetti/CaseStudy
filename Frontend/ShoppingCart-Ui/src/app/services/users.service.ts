@@ -35,4 +35,8 @@ export class UsersService {
     return this.http.post<Address>(`${this.apiServerUrl}/orders/storeAddress`,address);
   }
   
+   public getProfile(id:number):Observable<any>{
+     return this.http.get<any>(`${this.apiServerUrl}/users/getProfileById/${id}`);
+   }
+
 }
